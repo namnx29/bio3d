@@ -1,0 +1,6 @@
+{
+  "name": "Sinh Học 3D - Tế Bào & Cấp Độ Sinh Học",
+  "description": "Mô phỏng 3D tương tác trực quan các cấp độ kích thước tế bào sinh học và cấu tạo tế bào nhân sơ (Sinh học 10).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

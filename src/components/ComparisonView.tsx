@@ -669,8 +669,8 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       </div>
 
       {/* 3. Bottom Interactive Scientific Comparison Criteria Panel */}
-      <div className="absolute bottom-4 inset-x-5 z-20 flex flex-col gap-2">
-        <div className="bg-slate-900/95 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl p-3.5 max-h-56 overflow-hidden flex flex-col transition-all duration-300">
+      <div className="absolute bottom-16 md:bottom-18 inset-x-4 md:inset-x-8 z-20 flex flex-col gap-2 pointer-events-none">
+        <div className="bg-slate-900/95 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl p-3.5 max-h-[38vh] overflow-hidden flex flex-col transition-all duration-300 pointer-events-auto">
           <div className="flex items-center justify-between pb-2 border-b border-white/10">
             <div className="flex items-center gap-2">
               <ArrowLeftRight className="w-4 h-4 text-blue-400" />
@@ -685,7 +685,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
               </span>
               <button
                 onClick={() => setIsCriteriaExpanded(!isCriteriaExpanded)}
-                className="text-[11px] px-2 py-0.5 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors cursor-pointer"
+                className="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors cursor-pointer font-semibold"
               >
                 {isCriteriaExpanded ? 'Thu gọn' : 'Mở rộng'}
               </button>
@@ -711,7 +711,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
 
           {/* Active Criterion Details & Audio Speak Button */}
           {isCriteriaExpanded && (
-            <div className="mt-1 grid grid-cols-1 md:grid-cols-2 gap-2 text-xs overflow-y-auto no-scrollbar">
+            <div className="mt-1 grid grid-cols-1 md:grid-cols-2 gap-2 text-xs overflow-y-auto pr-1">
               <div className="p-2.5 rounded-xl bg-cyan-950/40 border border-cyan-500/30 text-cyan-100 flex flex-col justify-between">
                 <div>
                   <span className="font-bold text-cyan-300 block text-[11px] mb-0.5">
@@ -729,20 +729,20 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                   <p className="leading-relaxed text-[11px]">{criteria[activeCriterion].eukaryote}</p>
                 </div>
 
-                <div className="mt-2 pt-1.5 border-t border-indigo-500/20 flex items-center justify-between text-[10px] text-amber-300">
-                  <span className="truncate pr-2">
+                <div className="mt-2 pt-1.5 border-t border-indigo-500/20 flex items-center justify-between text-[11px] text-amber-300 gap-2">
+                  <span className="leading-snug">
                     💡 <strong>Tiến hóa:</strong> {criteria[activeCriterion].analysis}
                   </span>
                   {onSpeak && (
                     <button
                       onClick={() => handleReadCriterion(criteria[activeCriterion])}
-                      className="p-1 rounded-lg bg-indigo-900/60 hover:bg-indigo-800 text-white shrink-0 transition-colors cursor-pointer"
+                      className="p-1.5 rounded-lg bg-indigo-900/80 hover:bg-indigo-800 text-white shrink-0 transition-colors cursor-pointer"
                       title="Nghe thuyết minh tiêu chí này bằng tiếng Việt chuẩn"
                     >
                       {isSpeaking ? (
-                        <VolumeX className="w-3.5 h-3.5 text-rose-400" />
+                        <VolumeX className="w-4 h-4 text-rose-400" />
                       ) : (
-                        <Volume2 className="w-3.5 h-3.5 text-amber-300" />
+                        <Volume2 className="w-4 h-4 text-amber-300" />
                       )}
                     </button>
                   )}
